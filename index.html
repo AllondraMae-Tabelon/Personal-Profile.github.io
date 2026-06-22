@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Allondra Mae M. Tabelon | CS Student Portfolio</title>
+    <link rel="stylesheet" href="style.css" />
+    <!-- Font Awesome for icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+</head>
+<body>
+
+    <!-- ===== NAVIGATION ===== -->
+    <nav>
+        <div class="container nav-container">
+            <h1 class="logo">&lt;AM/&gt;</h1>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="hamburger" id="hamburger">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ===== HERO ===== -->
+    <header id="home">
+        <div class="container hero">
+            <div class="hero-text">
+                <p class="greeting">Hello, I'm</p>
+                <h1>Allondra Mae M. Tabelon</h1>
+                <p class="tagline">
+                    <span id="typed-text"></span>
+                </p>
+                <p class="bio">
+                    Graduating Computer Science student passionate about
+                    building clean, user-friendly software. Seeking full-time
+                    opportunities in software engineering.
+                </p>
+                <div class="cta-buttons">
+                    <a href="#projects" class="btn primary">View My Work</a>
+                    <a href="#contact" class="btn secondary">Contact Me</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <img
+                    src="profile.jpg"
+                    alt="Allondra Mae M. Tabelon Profile"
+                />
+            </div>
+        </div>
+    </header>
+
+    <!-- ===== ABOUT ===== -->
+    <section id="about">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-grid">
+                <div class="about-text">
+                    <p>
+                        I'm a final-year Computer Science student at CSPC with a
+                        strong interest in full-stack web development, cloud
+                        computing, and AI. I enjoy turning complex problems into
+                        elegant, scalable solutions.
+                    </p>
+                    <p>
+                        My academic background includes data structures,
+                        algorithms, database systems, and software engineering
+                        principles. I've also gained practical experience
+                        through internships and personal projects.
+                    </p>
+                    <div class="personal-details">
+                        <div><i class="fas fa-graduation-cap"></i> CSPC - 2027</div>
+                        <div><i class="fas fa-map-marker-alt"></i> Philippines</div>
+                        <div><i class="fas fa-envelope"></i> allondra.tabelon@cspc.edu</div>
+                    </div>
+                </div>
+                <div class="about-stats">
+                    <div class="stat">
+                        <span class="number">3+</span>
+                        <span class="label">Years Coding</span>
+                    </div>
+                    <div class="stat">
+                        <span class="number">8</span>
+                        <span class="label">Projects</span>
+                    </div>
+                    <div class="stat">
+                        <span class="number">1</span>
+                        <span class="label">Internships</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== SKILLS ===== -->
+    <section id="skills">
+        <div class="container">
+            <h2 class="section-title">Technical Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3>Languages</h3>
+                    <ul>
+                        <li><i class="fab fa-python"></i> Python</li>
+                        <li><i class="fab fa-java"></i> Java</li>
+                        <li><i class="fab fa-js"></i> JavaScript</li>
+                        <li><i class="fas fa-code"></i> C++</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3>Web & Frameworks</h3>
+                    <ul>
+                        <li><i class="fab fa-react"></i> React</li>
+                        <li><i class="fab fa-node"></i> Node.js</li>
+                        <li><i class="fas fa-database"></i> SQL / MongoDB</li>
+                        <li><i class="fab fa-bootstrap"></i> Bootstrap / Tailwind</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3>Tools & DevOps</h3>
+                    <ul>
+                        <li><i class="fab fa-git-alt"></i> Git / GitHub</li>
+                        <li><i class="fas fa-cloud"></i> AWS / Firebase</li>
+                        <li><i class="fas fa-terminal"></i> Linux / Bash</li>
+                        <li><i class="fas fa-box"></i> Docker</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== PROJECTS ===== -->
+    <section id="projects">
+        <div class="container">
+            <h2 class="section-title">Projects</h2>
+            <div class="project-grid">
+
+                <!-- Project 1 -->
+                <div class="project-card">
+                    <div class="project-icon">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <h3>AI Chat Assistant</h3>
+                    <p>
+                        A chatbot using NLP and transformer models to answer
+                        student queries about university enrollment.
+                    </p>
+                    <div class="project-tags">
+                        <span>Python</span>
+                        <span>TensorFlow</span>
+                        <span>Flask</span>
+                    </div>
+                    <a href="#" class="project-link">View Project →</a>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="project-card">
+                    <div class="project-icon">
+                        <i class="fas fa-store"></i>
+                    </div>
+                    <h3>E-Commerce API</h3>
+                    <p>
+                        RESTful API for an online store with authentication,
+                        product management, and payment integration.
+                    </p>
+                    <div class="project-tags">
+                        <span>Node.js</span>
+                        <span>Express</span>
+                        <span>MongoDB</span>
+                    </div>
+                    <a href="#" class="project-link">View Project →</a>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="project-card">
+                    <div class="project-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Student Dashboard</h3>
+                    <p>
+                        Interactive dashboard for students to track grades,
+                        attendance, and class schedules with data visualization.
+                    </p>
+                    <div class="project-tags">
+                        <span>React</span>
+                        <span>Chart.js</span>
+                        <span>Firebase</span>
+                    </div>
+                    <a href="#" class="project-link">View Project →</a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== CONTACT ===== -->
+    <section id="contact">
+        <div class="container">
+            <h2 class="section-title">Get In Touch</h2>
+            <div class="contact-wrapper">
+                <div class="contact-info">
+                    <p>
+                        I'm currently open to internship and full-time
+                        opportunities. Feel free to reach out!
+                    </p>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>allondra.tabelon@cspc.edu</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fab fa-github"></i>
+                        <span>github.com/allondramae</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fab fa-linkedin"></i>
+                        <span>linkedin.com/in/allondramae</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fab fa-twitter"></i>
+                        <span>@allondramae</span>
+                    </div>
+                </div>
+                <form class="contact-form" id="contactForm">
+                    <input type="text" placeholder="Your Name" required />
+                    <input type="email" placeholder="Your Email" required />
+                    <textarea rows="5" placeholder="Your Message" required></textarea>
+                    <button type="submit" class="btn primary">
+                        Send Message <i class="fas fa-paper-plane"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Allondra Mae M. Tabelon. Built with ❤️ using HTML, CSS &amp; JavaScript.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
