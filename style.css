@@ -632,3 +632,161 @@ footer a {
         gap: 16px;
     }
 }
+
+/* ===== ADDITIONAL STYLES FOR DYNAMIC FEATURES ===== */
+
+/* Dashboard link in navigation */
+.dashboard-link {
+    background: var(--primary);
+    color: var(--white) !important;
+    padding: 6px 16px;
+    border-radius: 50px;
+    font-weight: 500;
+    transition: var(--transition);
+}
+
+.dashboard-link:hover {
+    background: var(--primary-dark) !important;
+    color: var(--white) !important;
+    transform: translateY(-2px);
+}
+
+/* Status messages for contact form */
+.status-success {
+    background: #d4edda;
+    color: #155724;
+    padding: 12px 18px;
+    border-radius: var(--radius);
+    border-left: 4px solid #28a745;
+}
+
+.status-error {
+    background: #f8d7da;
+    color: #721c24;
+    padding: 12px 18px;
+    border-radius: var(--radius);
+    border-left: 4px solid #dc3545;
+}
+
+.status-loading {
+    background: #d1ecf1;
+    color: #0c5460;
+    padding: 12px 18px;
+    border-radius: var(--radius);
+    border-left: 4px solid #17a2b8;
+}
+
+/* Loading spinner for buttons */
+.btn i.fa-spinner {
+    margin-right: 8px;
+}
+
+/* Smooth transitions for dynamic content */
+.training-card,
+.project-card {
+    animation: fadeInUp 0.5s ease;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Training grid responsive - keep your existing styles */
+.training-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+@media (max-width: 900px) {
+    .training-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .training-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Project grid - single project centered */
+.project-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.project-card {
+    background: var(--white);
+    padding: 30px 24px;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+    text-align: center;
+    border: 1px solid rgba(155, 89, 182, 0.08);
+    width: 100%;
+}
+
+.project-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 40px rgba(155, 89, 182, 0.15);
+    border-color: var(--primary-light);
+}
+
+.project-card .project-icon {
+    font-size: 2.8rem;
+    color: var(--primary);
+    margin-bottom: 16px;
+}
+
+.project-card h3 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+
+.project-card p {
+    color: var(--secondary);
+    font-size: 0.95rem;
+    margin-bottom: 16px;
+    line-height: 1.7;
+}
+
+.project-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: center;
+    margin-bottom: 18px;
+}
+
+.project-tags span {
+    background: var(--light);
+    padding: 4px 12px;
+    border-radius: 50px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: var(--secondary);
+}
+
+.project-link {
+    color: var(--primary);
+    text-decoration: none;
+    font-weight: 600;
+    transition: var(--transition);
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.project-link:hover {
+    color: var(--primary-dark);
+}
