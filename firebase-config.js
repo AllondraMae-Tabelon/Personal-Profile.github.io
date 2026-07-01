@@ -24,6 +24,9 @@ const trainingsCollection = db.collection('trainings');
 const projectsCollection = db.collection('projects');
 
 console.log('✅ Firebase initialized successfully!');
+console.log('📁 messagesCollection:', messagesCollection.path);
+console.log('📁 trainingsCollection:', trainingsCollection.path);
+console.log('📁 projectsCollection:', projectsCollection.path);
 
 // Add this to firebase-config.js or run in console
 const trainingData = [
