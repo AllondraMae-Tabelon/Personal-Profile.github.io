@@ -10,6 +10,10 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
     />
+    
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
 </head>
 <body>
 
@@ -19,9 +23,10 @@
             <h1 class="logo">&lt;AM/&gt;</h1>
             <ul class="nav-links">
                 <li><a href="#about">About</a></li>
-                <li><a href="#skills">Skills</a></li>
+                <li><a href="#training">Training</a></li>
                 <li><a href="#projects">Projects</a></li>
                 <li><a href="#contact">Contact</a></li>
+                <li><a href="dashboard.html" target="_blank" class="dashboard-link"><i class="fas fa-chart-line"></i> Admin</a></li>
             </ul>
             <div class="hamburger" id="hamburger">
                 <span></span><span></span><span></span>
@@ -87,12 +92,12 @@
                         <span class="label">Years Coding</span>
                     </div>
                     <div class="stat">
-                        <span class="number">1</span>
+                        <span class="number" id="statProjects">1</span>
                         <span class="label">Projects</span>
                     </div>
                     <div class="stat">
-                        <span class="number">1</span>
-                        <span class="label">Internships</span>
+                        <span class="number" id="statTrainings">3</span>
+                        <span class="label">Trainings</span>
                     </div>
                 </div>
             </div>
@@ -103,93 +108,21 @@
     <section id="training">
         <div class="container">
             <h2 class="section-title">Training Programs Attended</h2>
-            <div class="training-grid">
-                
-                <!-- Training 1 -->
-                <div class="training-card">
-                    <div class="training-icon">
-                        <i class="fas fa-database"></i>
-                    </div>
-                    <h3>Data Science Essential with Python</h3>
-                    <p>
-                        Comprehensive training covering data analysis, visualization,
-                        machine learning fundamentals, and Python programming for
-                        data science applications.
-                    </p>
-                    <div class="training-meta">
-                        <span><i class="fas fa-calendar-alt"></i> 2025</span>
-                        <span><i class="fas fa-certificate"></i> Certificate</span>
-                    </div>
-                </div>
-
-                <!-- Training 2 -->
-                <div class="training-card">
-                    <div class="training-icon">
-                        <i class="fas fa-robot"></i>
-                    </div>
-                    <h3>Introduction to Natural Language Processing</h3>
-                    <p>
-                        In-depth exploration of NLP techniques including tokenization,
-                        sentiment analysis, language modeling, and practical
-                        applications using modern libraries.
-                    </p>
-                    <div class="training-meta">
-                        <span><i class="fas fa-calendar-alt"></i> 2025</span>
-                        <span><i class="fas fa-certificate"></i> Certificate</span>
-                    </div>
-                </div>
-
-                <!-- Training 3 -->
-                <div class="training-card">
-                    <div class="training-icon">
-                        <i class="fas fa-tasks"></i>
-                    </div>
-                    <h3>Scrum Foundation Professional Certification</h3>
-                    <p>
-                        Professional certification covering agile methodologies,
-                        Scrum framework, sprint planning, and effective team
-                        collaboration in software development.
-                    </p>
-                    <div class="training-meta">
-                        <span><i class="fas fa-calendar-alt"></i> 2026</span>
-                        <span><i class="fas fa-certificate"></i> Certified</span>
-                    </div>
-                </div>
-
+            <div class="training-grid" id="trainingGrid">
+                <!-- Dynamically loaded from Firebase -->
             </div>
         </div>
     </section>
 
     <!-- ===== PROJECTS ===== -->
-<section id="projects">
-    <div class="container">
-        <h2 class="section-title">Featured Project</h2>
-        <div class="project-grid" style="grid-template-columns: 1fr; max-width: 700px; margin: 0 auto;">
-            <!-- Single Project Card -->
-            <div class="project-card">
-                <div class="project-icon">
-                    <i class="fas fa-rocket"></i>
-                </div>
-                <h3>TheFolio - Personal Portfolio Builder</h3>
-                <p>
-                    A modern portfolio website builder designed for developers
-                    and creatives. This project showcases responsive design,
-                    smooth animations, and professional UI/UX principles.
-                    Built with modern web technologies and best practices.
-                </p>
-                <div class="project-tags">
-                    <span>HTML5</span>
-                    <span>CSS3</span>
-                    <span>JavaScript</span>
-                    <span>Responsive</span>
-                </div>
-                <a href="http://thefolio-fayk.vercel.app/?authuser=0" target="_blank" class="project-link">
-                    <i class="fas fa-external-link-alt"></i> View Live Project
-                </a>
+    <section id="projects">
+        <div class="container">
+            <h2 class="section-title">Featured Project</h2>
+            <div class="project-grid" id="projectGrid">
+                <!-- Dynamically loaded from Firebase -->
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
     <!-- ===== CONTACT ===== -->
     <section id="contact">
@@ -217,12 +150,13 @@
                         <i class="fab fa-twitter"></i>
                         <span>@allondramae</span>
                     </div>
+                    <div id="messageStatus" style="margin-top: 15px; display: none;"></div>
                 </div>
                 <form class="contact-form" id="contactForm">
-                    <input type="text" placeholder="Your Name" required />
-                    <input type="email" placeholder="Your Email" required />
-                    <textarea rows="5" placeholder="Your Message" required></textarea>
-                    <button type="submit" class="btn primary">
+                    <input type="text" id="senderName" placeholder="Your Name" required />
+                    <input type="email" id="senderEmail" placeholder="Your Email" required />
+                    <textarea id="senderMessage" rows="5" placeholder="Your Message" required></textarea>
+                    <button type="submit" class="btn primary" id="sendBtn">
                         Send Message <i class="fas fa-paper-plane"></i>
                     </button>
                 </form>
@@ -233,10 +167,11 @@
     <!-- ===== FOOTER ===== -->
     <footer>
         <div class="container">
-            <p>&copy; 2026 Allondra Mae M. Tabelon. Built with ❤️ using HTML, CSS &amp; JavaScript.</p>
+            <p>&copy; 2026 Allondra Mae M. Tabelon. Built with ❤️ using HTML, CSS, JavaScript &amp; Firebase.</p>
         </div>
     </footer>
 
+    <script src="firebase-config.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
