@@ -49,6 +49,54 @@ document.querySelectorAll('.nav-links a').forEach(link => {
     });
 });
 
+// ===== CONTACT FORM =====
+document.getElementById('contactForm').addEventListener('submit', async (e) => {
+    e.preventDefault();
+    
+    const name = document.getElementById('senderName').value;
+    const email = document.getElementById('senderEmail').value;
+    const message = document.getElementById('senderMessage').value;
+    const sendBtn = document.getElementById('sendBtn');
+    const statusDiv = document.getElementById('messageStatus');
+    
+    // Disable button and show loading
+    sendBtn.disabled = true;
+    sendBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+    statusDiv.style.display = 'block';
+    statusDiv.className = 'status-loading';
+    statusDiv.textContent = 'Sending your message...';
+    
+    try {
+        // Save to Firebase
+        await messagesCollection.add({
+            name: name,
+            email: email,
+            message: message,
+            timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+            read: false
+        });
+        
+        // Success
+        statusDiv.className = 'status-success';
+        statusDiv.textContent = '✅ Message sent successfully! I will get back to you soon.';
+        document.getElementById('contactForm').reset();
+        
+    } catch (error) {
+        console.error('Error sending message:', error);
+        statusDiv.className = 'status-error';
+        statusDiv.textContent = '❌ Failed to send message. Please try again later.';
+    }
+    
+    // Re-enable button
+    sendBtn.disabled = false;
+    sendBtn.innerHTML = 'Send Message <i class="fas fa-paper-plane"></i>';
+    
+    // Auto-hide status after 5 seconds
+    setTimeout(() => {
+        statusDiv.style.display = 'none';
+    }, 5000);
+});
+
 // ===== LOAD DATA FROM FIREBASE =====
 document.addEventListener('DOMContentLoaded', async () => {
     try {
