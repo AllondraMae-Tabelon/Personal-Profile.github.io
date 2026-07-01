@@ -1,5 +1,7 @@
+// ========================================
 // Firebase Configuration
-// Replace with your Firebase config from Firebase Console
+// Replace with YOUR Firebase config
+// ========================================
 
 const firebaseConfig = {
     apiKey: "YOUR_API_KEY",
@@ -16,4 +18,7 @@ const db = firebase.firestore();
 
 // Collections
 const messagesCollection = db.collection('messages');
+const trainingsCollection = db.collection('trainings');
 const projectsCollection = db.collection('projects');
+
+console.log('✅ Firebase initialized successfully!');
