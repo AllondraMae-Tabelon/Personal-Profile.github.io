@@ -264,53 +264,96 @@ section {
     color: var(--secondary);
 }
 
-/* ===== SKILLS ===== */
-#skills {
+/* ===== TRAINING PROGRAMS (Replaces Skills) ===== */
+#training {
     background: var(--white);
 }
 
-.skills-grid {
+.training-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 30px;
 }
 
-.skill-category {
+.training-card {
     background: var(--light);
-    padding: 28px 24px;
+    padding: 30px 24px;
     border-radius: var(--radius);
     transition: var(--transition);
     box-shadow: 0 2px 12px rgba(155, 89, 182, 0.06);
+    text-align: center;
+    border: 1px solid rgba(155, 89, 182, 0.06);
 }
 
-.skill-category:hover {
-    transform: translateY(-4px);
+.training-card:hover {
+    transform: translateY(-6px);
     box-shadow: 0 8px 30px rgba(155, 89, 182, 0.12);
+    border-color: var(--primary-light);
 }
 
-.skill-category h3 {
-    font-size: 1.2rem;
+.training-icon {
+    font-size: 2.5rem;
+    color: var(--primary);
     margin-bottom: 16px;
+}
+
+.training-card h3 {
+    font-size: 1.15rem;
+    margin-bottom: 12px;
     color: var(--dark);
+    min-height: 50px;
 }
 
-.skill-category ul {
-    list-style: none;
+.training-card p {
+    color: var(--secondary);
+    font-size: 0.95rem;
+    line-height: 1.7;
+    margin-bottom: 18px;
 }
 
-.skill-category ul li {
-    padding: 8px 0;
+.training-meta {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    padding-top: 16px;
+    border-top: 1px solid rgba(155, 89, 182, 0.1);
+}
+
+.training-meta span {
     display: flex;
     align-items: center;
-    gap: 12px;
-    font-size: 1rem;
+    gap: 6px;
+    font-size: 0.85rem;
     color: var(--secondary);
+    font-weight: 500;
 }
 
-.skill-category ul li i {
-    width: 24px;
+.training-meta i {
     color: var(--primary);
-    font-size: 1.2rem;
+}
+
+/* ===== RESPONSIVE FOR TRAINING ===== */
+@media (max-width: 900px) {
+    .training-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .training-grid {
+        grid-template-columns: 1fr;
+        padding: 0 10px;
+    }
+    
+    .training-card {
+        padding: 24px 18px;
+    }
+    
+    .training-card h3 {
+        min-height: auto;
+        font-size: 1.05rem;
+    }
 }
 
 /* ===== PROJECTS ===== */
